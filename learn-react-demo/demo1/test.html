@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../build/react.js"></script>
+	<script src="../build/react-dom.js"></script>
+	<script src="../build/browser.min.js"></script>
+	<style>
+ 		.title{
+ 			margin:0 auto;
+ 			overflow:hidden;
+ 			height:auto;
+ 			cursor:pointer;
+ 		}
+ 		.title span{
+ 			float:left;
+ 			padding:10px 20px;
+ 		    background:#ccc;
+ 		}
+ 		.title .active{
+ 			background:red;
+ 		}
+ 		.content{
+ 			width:248px;
+ 			height:100px;
+ 		}
+ 		.content span{
+ 			display:none;
+ 			width:100%;
+ 			height:100%;
+ 			text-align:center;
+ 			line-height:100px; 
+ 		}
+ 		.content .active{
+ 			display: block;
+ 			background:#555;
+ 			color:yellow;
+ 		}
+	</style>
+</head>
+<body>
+	<div id="example"></div>
+	<script type="text/babel">
+      var Tab = React.createClass({
+      	getInitialState:function(){
+             return {current:0}
+      	},
+      	handleClick:function(index){
+ 			 this.setState({current:index})
+      	},
+      	contentCurrent:function(index){
+      		return index ===  this.state.current?"active":'';
+      	},
+      	render:function(){
+      		return(
+      		<div> 
+	      		<div className="title">
+	                   {
+	                        React.Children.map(this.props.children,(element,index)=>{
+	                        	return <span onClick={()=>this.handleClick(index)} className={this.contentCurrent(index)}>{element.props.name}</span>
+	                        })
+	                   }
+	      		</div>
+	      		<div className="content">
+	                   {
+	                   	   React.Children.map(this.props.children,(element,index)=>{
+                                 return <span className = {this.contentCurrent(index)}>{element}</span>  
+	                   	   })
+	                   }
+	      		</div>
+      		</div>
+      		)
+      	}
+      });
+      ReactDOM.render(
+         <Tab>
+             <div name="frist">1</div>
+             <div name="second">2</div>
+             <div name="third">3</div>
+         </Tab>,
+         document.getElementById("example")
+      	)
+	</script>
+</body>
+</html>

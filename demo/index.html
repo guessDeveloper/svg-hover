@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width height=device-width">
+    <title>Document</title>
+    <style>
+/*
+        .svg{
+            opacity:1 
+        }
+        .rect{
+            opacity:0.1
+        }
+*/
+/*
+        .now,.after{
+            fill:none;
+            stroke-linecap:round;
+            stroke-linejoin:round;
+        } 
+        .now{
+            stroke:#ccc;
+        }
+        .after{
+            stroke:#b73a23;
+            stroke-dasharray:0 1160;
+            stroke-dashoffset:0;
+            transition: all 1s;
+        
+        }
+        .box:hover .after{
+             stroke-dasharray:1160 1160;
+        }
+        @keyframes line{
+            0%{
+                stroke-dasharray:0 1160;
+            }
+            100%{
+                stroke-dasharray:1160 1160;
+            }
+        }
+*/
+        .box{
+            width:150px;
+            height:50px;
+            margin:100px auto;
+            position:relative;
+            text-align: center;
+            line-height:50px;
+            position:relative;
+        }
+        .rect{
+            stroke:#c41a1a;
+            stroke-width:2;
+            fill:none;
+            stroke-linecap:round;
+            stroke-linejoin:round;
+            stroke-dasharray:130 400;
+            stroke-dashoffset:-206;
+        }
+        .svg{
+            width:150px;
+            height:50px;
+            position:absolute;
+            top:0;
+            left:0;
+        }
+        .box:hover .rect{
+            stroke-dasharray:400 400;
+            stroke-dashoffset:0;
+            transition:all 1s;
+        }
+        .box:hover{
+            background:rgb(0,179,255);
+            color:#fff;
+             transition:all 1s;
+        }
+        
+    </style>
+</head>
+<body>
+    
+<!--
+ <svg version="1.1" xmlns="www.3w.org/2000/svg" width="150" height="150">
+     <circle r="72" cx="75" cy="75"   stroke="black" stroke-width="2" fill="#fff" />
+ </svg>
+ <svg version="1.1" xmlns="www.3w.org/2000/svg" width="100" height="100" class="svg">
+     <rect width="100" height="100" stroke="rgb(0,179,255)" stroke-width="3" fill="#000" class="rect" />
+ </svg>
+ <svg version="1.1" xmlns="www.3w.org/2000/svg" width="150" height="300">
+     <ellipse cx="75" cy="150" rx="75" ry="150"  fill="red" ></ellipse>
+ </svg>
+ <svg version="1.1" xmlns="www.3w.org/2000/svg" width="150" height="150">
+     <line x1="0" y1="0" x2="150" y2="150" stroke="yellow" stroke-width="2">
+ </svg>
+ <svg version="1.1" xmlns="www.3w.org/2000/svg" width="300" height="300">
+     <polygon points="150,0 300,150 150,300 0,150" stroke="green" stroke-width="0" fill="red" >
+     
+ </svg>
+-->
+<!--
+<svg version="1.1" xmlns="http://www.3w.org/2000/svg" width="300" height="300" class="box" >
+    <polyline points="5,5 295,5 295,295 5,295 5,5"  stroke-width="10"  class="now" />
+    <polyline points="5,5 295,5 295,295 5,295 5,5"  stroke-width="10"  class="after" />
+</svg>
+-->
+
+ <div class="box">
+     <div class="text">Hover</div>
+     <svg version="1.1" xmlns="www.3w.org/2000/svg" class="svg">
+        <polyline points="1,1 149,1 149,49 1,49 1,1" class="rect"/>
+     </svg>
+ </div>
+
+
+</body>
+</html>
